@@ -1,4 +1,6 @@
-# 🕯️ Cadenza — Flask E-Commerce Fragrance Store
+# Cadenza — Flask E-Commerce Fragrance Store
+
+![Screenshot 2025-06-11 at 23 46 37 copy](https://github.com/user-attachments/assets/d0e2c2f4-59dd-476b-914f-9b6049b879f4)
 
 **Cadenza** is a QUT university project (IFN564, Rapid Web Development) designed as an interactive online fragrance store built using **Flask**, **Python**, and **SQLite**. It allows users to browse a product catalogue (candles and colognes), add and remove items from a cart, and complete a purchase flow with form validation.
 
