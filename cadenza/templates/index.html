@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<!-- Hero Section -->
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/static/img/hero.jpeg" class="d-block w-100 image-dim-1" alt="...">
+      <div class="carousel-caption h-50">
+        <h6>Welcome home</h6>
+        <h2>Define your space with our new candle collection</h2>
+        <a href="{{ url_for('main.candles') }}"><button type="button" class="btn btn-primary-vanilla grow-less">SHOP NOW</button></a>
+        
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/static/img/hero_2.jpeg" class="d-block w-100 image-dim-2" alt="...">
+      <div class="carousel-caption h-50">
+        <h6>Find your signature scent</h6>
+        <h2>our new cologne range is yours to explore</h2>
+        <a href="{{ url_for('main.colognes') }}"><button type="button" class="btn btn-primary-vanilla grow-less">SHOP NOW</button></a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sub-Hero Section -->
+<div class="sub-hero">
+  <div class="col-sm-12 d-flex justify-content-center">
+      <h3>Journey into Fragrant Opulence</h3>
+  </div>
+  <div class="col-sm-12 d-flex justify-content-center mt-3">
+      <div class="sub-hero-message">Explore a world of timeless elegance and enchanting scents that define luxury, as we invite you to experience the allure of our meticulously crafted fragrances, where every drop is a masterpiece.</div>
+  </div>
+</div>
+
+<!-- Product Nav -->
+<div class="stick-on-scroll">
+  <div style="width: 100%; height: 65px; background-color: transparent;"></div>
+  <div class="category-row">
+    <div class="row ">
+        <div class="col-sm-4 d-flex justify-content-center align-self-center">
+          <a href="{{ url_for('main.candles') }}" class="product-category white-font grow-less scroll-link">Candles</a>
+        </div>
+        <div class="col-sm-4 d-flex justify-content-center">
+          <a href="{{ url_for('main.all_products') }}" class="product-category white-font grow-less scroll-link">All Products</a>
+        </div>
+        <div class="col-sm-4 d-flex justify-content-center">
+          <a href="{{ url_for('main.colognes') }}" class="product-category white-font grow-less scroll-link">Colognes</a>
+        </div>
+    </div>
+  </div>
+  <div class="dropdown d-flex justify-content-center filter-toggle">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+       Filter Scents
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+       {% for scent in scents %}
+         <li><a class="dropdown-item" href="#">{{ scent.name }}</a></li>
+       {% endfor %}
+    </ul>
+   </div>
+</div>
+
+
+
+<!-- Display Products -->
+<div class="container-fluid">
+  <div class="row">
+    {% for product in products %}
+    <div class="col">
+      <div class="card mt-5 mb-5" style="width: 18rem;">
+        <a href="{{ url_for('main.product', product_id=product.id) }}">
+          <img src="{{ url_for('static', filename='img/' + product.image_url) }}" class="card-img-top" alt="Card Image">
+        </a>
+        <div class="card-body">
+          <div class="product-title-cart d-flex justify-content-between">
+            <a href="{{ url_for('main.product', product_id=product.id) }}"><h4 class="product-name">{{ product.name }}</h4></a>
+            <div>
+              <form class="product-page-add-to-cart" action="{{ url_for('main.basket') }}">
+                <input type="hidden" id="product_id" name="product_id" value="{{ product.id }}">
+                <button class="remove" type="submit">
+                  <img class="align-right grow" width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/add-to-basket.png" alt="add-to-basket">
+              </button>
+            </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title">{{ product.scent.name }}</h5>
+            </div>
+            <div class="col">
+              <h5 class="card-title text-right">{{ "${:,.2f}".format(product.price) }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %} 

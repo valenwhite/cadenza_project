@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+<section>
+    <div class="hero-spacer" >
+        <img src="{{ url_for('static', filename='img/quiz_image.jpeg')}}" class="card-img-top hero-spacer-img" alt="Card Image">
+    </div>
+    <div class="container">
+        <div class="row co-12 d-flex mt-5 mb-5">
+            <h3>Your Details</h3>
+        </div>
+        <!-- Each item displays on a new line -->
+        <div class="row">
+            <div class="col-sm-8">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="firstname">First Name</label>
+                          <input type="firstname" class="form-control" id="firstname" placeholder="First name" name="firstname">
+                        </div>
+                        <div class="col">
+                          <label for="lastname">Last Name</label>
+                          <input type="lastname" class="form-control" id="lastname" placeholder="Last name" name="lastname">
+                        </div>
+                      </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="text" class="form-control" id="inputEmail4" placeholder="Email" name="email">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPhone4">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone4" placeholder="Phone" name="phone">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress">Address</label>
+                      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address">
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity" name="city">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control" name="state">
+                          <option selected>Choose...</option>
+                          <option>ACT</option>
+                          <option>NSW</option>
+                          <option>NT</option>
+                          <option>QLD</option>
+                          <option>TAS</option>
+                          <option>SA</option>
+                          <option>VIC</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputZip">Postcode</label>
+                        <input type="text" class="form-control" id="inputPostcode" name="post_code">
+                      </div>
+                    </div>
+                    <button type="submit" class="slide btn-cart btn-outline-cart mt-5">Pay Now</button>
+                  </form>
+        </div>
+            <div class="col-sm-4">
+                <!-- Display total price -->
+                <div class="card">
+                    <h4 class="card-header basket-header"><a4>Total Price</a4></h4>
+                    <div class="card-body ">
+                        <div class="justify-content-between">
+                            <h4 class="card-text basket-header">Subtotal:
+                                <a class="float-right basket-header">{{ "${:,.2f}".format(total_price * 0.90) }}</a>
+                            </h4>
+                        </div>
+                        <div class="justify-content-between">
+                            <h4 class="card-text basket-header">GST:
+                                <a class="float-right basket-header">{{ "${:,.2f}".format(total_price * 0.10) }}</a>
+
+                            </h4>
+                        </div>
+                        <div class="justify-content-between mt-3">
+                            <h4 class="card-text basket-price basket-header">Total:
+                                <a class="float-right ">{{ "${:,.2f}".format(total_price) }}</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

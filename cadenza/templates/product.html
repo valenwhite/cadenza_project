@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+<!-- Product Info -->
+
+<div class="container-fluid text-center mt-5 mb-5 pt-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <img src="{{url_for('static', filename='img/'+selected_product.image_url) }}" class="card-img-top" alt="...">
+      </div>
+      <div class="col-lg-4">
+        <div class="card-body">
+          <h4 class="card-title text-left" style="font-weight: 300;">{{ selected_product.name }}</h4>
+          <div>
+            <h5 class="card-title text-left" style="font-size: 24px; color:grey;">{{ "${:,.2f}".format(selected_product.price) }}</h5>
+          </div>
+          <hr/>
+          <div class="card-title text-left mt-5 product-detail-titles">{{ selected_product.sub_headline }}</div>
+          <p class="card-text text-left mt-3">{{ selected_product.description }}<br/><br/>{{ selected_product.scent.description }}</p>
+          <div class="card-title text-left mt-5 product-detail-titles">Scent Notes</div>
+          <ul>
+            {% for scent_note in scent_notes %}
+            <li class="text-left scent-list-text">{{ scent_note }}</li>
+            {% endfor %}
+          </ul>
+          <div class="card-title text-left mt-5 product-size-details">{{ selected_product.size }}{{ measure }} | {{ product_usage_estimate }}</div>
+          <div>
+            <form class="product-page-add-to-cart" action="{{ url_for('main.basket') }}">
+                <input type="hidden" id="product_id" name="product_id" value="{{ selected_product.id }}">
+                <button href="" type="submit" class="slide btn-cart btn-outline-cart mt-5">Add to Cart</button>
+            </form>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <div class="related-title related-prodcut-spacing text-center mb-5 pt-5">Related Products</div>
+
+  <div class="container-fluid mx-auto mt-5 ">
+    <div class="row justify-content-between left-push">
+      {% for product in related_products %}
+      <div class="col-12 col-md-4">
+        <div class="card" style="width: 18rem;">
+          <a href="{{ url_for('main.product', product_id=product.id) }}"><img src="{{ url_for('static', filename='img/' + product.image_url) }}" class="card-img-top" alt="Card Image"></a>
+          <div class="card-body">
+            <div class="product-title-cart">
+              <a href="{{ product.link }}"><h4 class="card-title">{{ product.name }}</h4></a>
+            </div>
+            <h5 class="card-title">{{ product.scent_id.name }}</h5>
+            <h5 class="card-title">{{ "${:,.2f}".format(product.price) }}</h5>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+
+{% endblock %}
+

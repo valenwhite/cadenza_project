@@ -1,0 +1,395 @@
+/* ----- Site Wide -----*/
+
+p {
+  font-family: "futura-pt", sans-serif;
+  font-size: 18px !important;
+}
+
+h2{
+  font-size: 30px;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-shadow: 0 0 12px rgb(0 0 0 / 0.3);
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 22px;
+  font-family: "semplicitapro", sans-serif;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 24px;
+  font-family: "semplicitapro", sans-serif;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 14px;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: 14px;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-shadow: 0 0 12px rgb(0 0 0 / 0.3);
+  text-transform: uppercase;
+}
+
+a, a:visited {
+  text-decoration: none !important; 
+}
+
+a:hover, .product-name:hover {
+  text-decoration: none !important;
+  color: grey !important;
+}
+
+
+.image-dim-1 {
+  filter: brightness(80%);
+}
+
+.image-dim-2 {
+  filter: brightness(90%);
+}
+
+.container-fluid {
+  max-width:1400px;
+}
+
+.btn-primary-vanilla {
+    background: rgba(54, 25, 25, 0);
+    border-radius: 0 !important;
+    border-width: 2px !important;
+    border-color: white !important;
+    margin-top: 2% !important;
+    font-size: 0.8rem !important;
+    color: white !important;
+    font-family: "semplicitapro", sans-serif;
+    font-weight: 200 !important;
+    font-style: normal;
+    padding: 11px 27px 11px 27px !important;
+    box-shadow: 0 0 10px rgb(0 0 0 / 0.2);
+    text-shadow: 0 0 10px rgb(0 0 0 / 0.2);
+}
+
+.grow, .grow-less {
+  transition: all .2s ease-in-out; 
+}
+
+
+.grow:hover { 
+  transform: scale(1.25) !important; 
+  cursor: pointer;
+}
+
+.grow-less:hover {
+  transform: scale(1.10); 
+  cursor: pointer;
+}
+
+.stick-on-scroll {
+  position: sticky;
+  top: 140px important!;
+  z-index: 10;
+}
+
+/* ----- NavBar -----*/
+
+.navbar-brand{
+    font-size: 30px;
+    font-family: "semplicitapro", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.nav-link {
+    font-size: 14px;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@media only screen and (max-width: 992px) {
+    .nav-stick-toggle {
+      position: absolute;
+      top: 14px;
+      right: 12px;
+      border: none !important;
+      color: black !important;
+    }
+
+    .nav-stick-cart {
+        position: absolute;
+        top: 13px;
+        right: 70px;
+      }
+
+    .navbar-toggler-icon {
+      background-image: black !important;
+    }
+  }
+
+  .stick-on-scroll {
+    position: -webkit-sticky !important; /* For Safari browser */
+    position: sticky;
+    top: 0;
+}
+
+/* ----- Hero ----- */
+
+.carousel-slide, .carousel-inner, .carousel-item{
+  max-height: 700px;
+}
+
+.carousel {
+     width:100% !important; 
+     overflow: hidden !important; 
+}
+
+.sub-hero {
+  padding: 130px;
+  padding-bottom: 120px;
+  width: 100%;
+  height: 100%;
+}
+
+.sub-hero-message {
+  font-size: 14px;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.hero-spacer {
+  height: 140px;
+  overflow: hidden;
+  margin-bottom: 2%;
+}
+
+.hero-spacer-img {
+  filter: blur(10px);
+  transform: scale(1.05);
+}
+
+/* ----- Product Display ----- */
+
+.card {
+  border: none !important;
+}
+
+.category-row {
+  width: 100%;
+  height: 100%;
+  padding: 20px 0px 15px 20px;
+  background-color: black;
+}
+
+.product-category{
+  font-size: 20px;
+  font-family: "semplicitapro", sans-serif;
+  color: white;
+  white-space: nowrap;
+  text-transform: uppercase
+}
+
+.prodcut-spacing {
+  margin-top: 100px !important;
+}
+
+.btn-secondary, .dropdown, .dropdown-menu {
+  background: white !important;
+  border-radius: 0 !important;
+  border-width: 0px !important;
+  color: black !important;
+  font-size: 13px !important;
+  font-family: "semplicitapro", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin-bottom: 1px;
+  text-transform: uppercase;
+}
+
+.product-title-cart {
+  display: flex;
+}
+
+.card-title {
+  color: black;
+}
+
+.product-name {
+  color: black !important;
+}
+
+.left-push {
+  margin-left:7%;
+}
+
+.align-right {
+  margin-left: auto;
+}
+
+.filter-toggle {
+  padding: 5px 0px 10px 0px;
+}
+
+/* ----- Prodcut Details -----*/
+
+.scent-list-text {
+  font-family: "futura-pt", sans-serif;
+  font-size: 18px;
+}
+
+.product-detail-titles {
+  font-size: 20px;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.product-size-details {
+  font-size: 18px;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.btn-outline-cart {
+  background-color: white;
+  border: solid;
+  border-color: black;
+  border-radius: 0;
+  width: 100%;
+  height: 60px;
+  transition: all .2s ease-in-out;
+}
+
+.btn-cart {
+  color: black;
+  font-family: "semplicitapro", sans-serif;
+  transition: all .2s ease-in-out;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+
+}
+
+
+.btn-outline-cart:hover {
+  background-color: black;
+  border: 0px;
+  border-radius: 0;
+}
+
+.btn-cart:hover {
+  color: white;
+  font-family: "semplicitapro", sans-serif;
+}
+
+
+
+/* ----- Quiz Image ----- */
+
+.overflow-container-1 {
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: blur(0.4rem);
+  transform: scale(1.1); 
+  filter: brightness(50%);
+}
+
+/* ----- Related -----*/
+
+.related-title {
+  font-size: 35px;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.related-prodcut-spacing {
+  margin-top: 75px !important;
+}
+
+/* ----- Basket ----- */
+
+.basket-header {
+  font-size: clamp(12px, 1.2vw, 20px);
+}
+
+.basket-price {
+  font-size: clamp(14px, 1.2vw, 20px);
+}
+
+.img-thumbnail {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 0px;
+  border-radius: 0rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,0);
+  border-bottom: 2px solid rgba(0,0,0,.125);
+}
+
+.product-page-add-to-cart {
+  background-color: white;
+}
+
+.remove {
+  background-color: white !important;
+  border: none !important;
+}
+
+/* -----Footer ----- */
+
+footer {
+  height: 100%;
+}
+
+.socials {
+  float:left
+}
+
+.copyright {
+  margin-top: 30px;
+}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<!-- Product Nav -->
+<div class="stick-on-scroll">
+  <div style="width: 100%; height: 65px; background-color: transparent;"></div>
+  <div class="category-row">
+    <div class="row ">
+        <div class="col-sm-4 d-flex justify-content-center align-self-center">
+          <a href="{{ url_for('main.candles') }}" class="product-category white-font grow-less scroll-link">Candles</a>
+        </div>
+        <div class="col-sm-4 d-flex justify-content-center">
+          <a href="{{ url_for('main.all_products') }}" class="product-category white-font grow-less scroll-link">All Products</a>
+        </div>
+        <div class="col-sm-4 d-flex justify-content-center">
+          <a href="{{ url_for('main.colognes') }}" class="product-category white-font grow-less scroll-link">Colognes</a>
+        </div>
+    </div>
+  </div>
+  <div class="dropdown d-flex justify-content-center filter-toggle">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+       Filter Scents
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+       {% for scent in scents %}
+         <li><a class="dropdown-item" href="#">{{ scent.name }}</a></li>
+       {% endfor %}
+    </ul>
+   </div>
+</div>
+
+
+
+<!-- Display Prodcuts -->
+<div class="container-fluid mt-5">
+  <div class="row">
+    {% for product in products %}
+    <div class="col">
+      <div class="card mt-5 mb-5" style="width: 18rem;">
+        <a href="{{ url_for('main.product', product_id=product.id) }}">
+          <img src="{{ url_for('static', filename='img/' + product.image_url) }}" class="card-img-top" alt="Card Image">
+        </a>
+        <div class="card-body">
+          <div class="product-title-cart d-flex justify-content-between">
+            <a href="{{ url_for('main.product', product_id=product.id) }}"><h4 class="product-name">{{ product.name }}</h4></a>
+            <div>
+              <form class="product-page-add-to-cart" action="{{ url_for('main.basket') }}">
+                <input type="hidden" id="product_id" name="product_id" value="{{ product.id }}">
+                <button class="remove" type="submit">
+                  <img class="align-right grow" width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/add-to-basket.png" alt="add-to-basket">
+              </button>
+            </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title">{{ product.scent.name }}</h5>
+            </div>
+            <div class="col">
+              <h5 class="card-title text-right">{{ "${:,.2f}".format(product.price) }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %} 
